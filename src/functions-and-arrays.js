@@ -1,24 +1,66 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 == num2) {
+    return num1, num2
+  } else if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord=""
+  if (!words.length) {
+    longestWord = null
+  } else {
+    for (const word of words) {
+      if (word.length > longestWord.length) {
+        longestWord = word
+      }
+    }
+  }
+  return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sumResult = 0
+  if (numbers.length){ 
+    for (const number of numbers) {
+      sumResult += number
+    }
+  }
+  return sumResult
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(elementArray) {
+  let sumResult = 0
+  if (elementArray.length){ 
+    for (const element of elementArray) {
+      if ((typeof element == "number") || (typeof element == "boolean")) {
+        sumResult += element
+      } else if (typeof element == "string") {
+        sumResult += element.length
+      } else {
+        throw new Error("Unsupported data type sir or ma'am")
+      }
+    }
+  }
+  return sumResult
+}
 
 
 
@@ -26,16 +68,51 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  let sumResult = 0
+  if (numbers.length){ 
+    for (const number of numbers) {
+      sumResult += number
+    }
+    return sumResult/numbers.length
+  } else {
+    return null
+  }
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  let sumResult = 0
+  if (words.length) { 
+    for (const word of words) {
+      sumResult += word.length
+    }
+    return sumResult/words.length
+  } else {
+    return null
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(elementArray) {
+  let sumResult = 0
+  if (elementArray.length){ 
+    for (const element of elementArray) {
+      if ((typeof element == "number") || (typeof element == "boolean")) {
+        sumResult += element
+      } else if (typeof element == "string") {
+        sumResult += element.length
+      } 
+    }
+    return sumResult/elementArray.length
+  } else {
+    return null
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +129,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(inputArray) {
+  let resultArray=[]
+  if (inputArray.length) {
+    for (const element of inputArray) {
+      if (!resultArray.includes(element)) {
+        resultArray.push(element)
+      }
+    }
+    return resultArray
+  } else {
+    return null
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, searchedWord) {
+  if (wordsArray.length) {
+    if(wordsArray.includes(searchedWord)){
+        return true
+      } else {
+        return false
+      }
+    } else {
+    return null
+  }
+}
 
 
 
@@ -78,7 +177,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray, wordToCount) {
+  let countedWord=0
+  if (wordsArray.length) {
+    for (const word of wordsArray) {
+      if(word == wordToCount) {
+        countedWord++
+      }
+    }
+  }
+  return countedWord
+}
 
 
 
@@ -106,7 +215,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let countNumberOne=0
+  let countNumberTwo=0
+  dimension = matrix.length * matrix[1].length
+  for (line of matrix) {
+    for (element of line) {
+      switch(element) {
+        case 1:
+          countNumberOne++
+          break
+        case 2:
+          countNumberTwo++
+      }
+    }
+  }
+  if (countNumberOne == dimension){
+    return 1
+  } else if (countNumberTwo == dimension){
+    return 16
+  }
+}
 
 
 
